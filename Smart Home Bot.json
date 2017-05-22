@@ -1,0 +1,1311 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "Smart Home Bot",
+  "desc": "A bot implemented in a smartphone application to manage smart home IoT devices",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "AdjustTemp"
+    },
+    {
+      "name": "Lock"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "TurnOff"
+    },
+    {
+      "name": "TurnOn"
+    },
+    {
+      "name": "Unlock"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Appliance"
+    },
+    {
+      "name": "Equipment"
+    },
+    {
+      "name": "Room"
+    },
+    {
+      "name": "Temperature"
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [],
+  "actions": [
+    {
+      "actionName": "AdjustTemp",
+      "intentName": "AdjustTemp",
+      "channel": null,
+      "actionParameters": [
+        {
+          "parameterName": "Appliance",
+          "entityName": "Appliance",
+          "required": true,
+          "question": "What should I turn on?",
+          "phraseListFeatureName": null
+        },
+        {
+          "parameterName": "Room",
+          "entityName": "Room",
+          "required": true,
+          "question": "To which room?",
+          "phraseListFeatureName": null
+        },
+        {
+          "parameterName": "Temperature",
+          "entityName": "Temperature",
+          "required": true,
+          "question": "At which temperature?",
+          "phraseListFeatureName": null
+        }
+      ]
+    },
+    {
+      "actionName": "Lock",
+      "intentName": "Lock",
+      "channel": null,
+      "actionParameters": [
+        {
+          "parameterName": "Equipment",
+          "entityName": "Equipment",
+          "required": true,
+          "question": "What should I lock?",
+          "phraseListFeatureName": "Equipment"
+        },
+        {
+          "parameterName": "Room",
+          "entityName": "Room",
+          "required": true,
+          "question": "In which room?",
+          "phraseListFeatureName": "Room"
+        }
+      ]
+    },
+    {
+      "actionName": "TurnOff",
+      "intentName": "TurnOff",
+      "channel": null,
+      "actionParameters": [
+        {
+          "parameterName": "Appliance",
+          "entityName": "Appliance",
+          "required": true,
+          "question": "What should I turn off?",
+          "phraseListFeatureName": null
+        },
+        {
+          "parameterName": "Room",
+          "entityName": "Room",
+          "required": true,
+          "question": "To which room?",
+          "phraseListFeatureName": "Room"
+        }
+      ]
+    },
+    {
+      "actionName": "TurnOn",
+      "intentName": "TurnOn",
+      "channel": null,
+      "actionParameters": [
+        {
+          "parameterName": "Appliance",
+          "entityName": "Appliance",
+          "required": true,
+          "question": "What should I turn on?",
+          "phraseListFeatureName": null
+        },
+        {
+          "parameterName": "Room",
+          "entityName": "Room",
+          "required": true,
+          "question": "To which room?",
+          "phraseListFeatureName": "Room"
+        }
+      ]
+    },
+    {
+      "actionName": "Unlock",
+      "intentName": "Unlock",
+      "channel": null,
+      "actionParameters": [
+        {
+          "parameterName": "Equipment",
+          "entityName": "Equipment",
+          "required": true,
+          "question": "What should I unlock?",
+          "phraseListFeatureName": "Equipment"
+        },
+        {
+          "parameterName": "Room",
+          "entityName": "Room",
+          "required": true,
+          "question": "To which room?",
+          "phraseListFeatureName": "Room"
+        }
+      ]
+    }
+  ],
+  "model_features": [
+    {
+      "name": "Equipment",
+      "mode": true,
+      "words": "doors,door,windows,window,front door,main door",
+      "activated": true
+    },
+    {
+      "name": "Room",
+      "mode": true,
+      "words": "kitchen,living room,bedroom,bathroom,rest room,wc,hall",
+      "activated": true
+    }
+  ],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "cancel that",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tur",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "lock the main door",
+      "intent": "Lock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 9,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "dcd",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "o",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "t",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "living room",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 0,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "aedf",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "turn on the heat",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat in the bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 31
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the bedroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 30
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on at 23 celsius",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on at 23 celsius in the bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Room",
+          "startPos": 38,
+          "endPos": 45
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the living room at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 39,
+          "endPos": 40
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat up at 23 c in the bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Room",
+          "startPos": 32,
+          "endPos": 39
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 31
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "23 celsius",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "the heat",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 4,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "turn on in the living room",
+      "intent": "AdjustTemp",
+      "entities": []
+    },
+    {
+      "text": "turn the heat on the bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 21,
+          "endPos": 28
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat at 23 in the kitchen",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Room",
+          "startPos": 30,
+          "endPos": 36
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the living room",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 34
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 0,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the kitchen",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 30
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "bedroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 0,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on the bathroom at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 33,
+          "endPos": 34
+        },
+        {
+          "entity": "Room",
+          "startPos": 21,
+          "endPos": 28
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat in the living room at 12",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 39,
+          "endPos": 40
+        },
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 34
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn on the lights",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "turn on the light",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "turn the lights on in the bedroom",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 32
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn on the lights in the living room",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 36
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "turn up the heat in bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 20,
+          "endPos": 27
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn down the heat at 12",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 22,
+          "endPos": 23
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 14,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "adjust the heat in the living room at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 38,
+          "endPos": 39
+        },
+        {
+          "entity": "Room",
+          "startPos": 23,
+          "endPos": 33
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 11,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat at 2e degrees in the bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 38,
+          "endPos": 45
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the bathroom at 23 c",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 36,
+          "endPos": 37
+        },
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 31
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat at 23 c",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn up the heat in the bedroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 30
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat in the living room at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 39,
+          "endPos": 40
+        },
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 34
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "12 in the living room",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 0,
+          "endPos": 1
+        },
+        {
+          "entity": "Room",
+          "startPos": 10,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "bedroom 14",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 8,
+          "endPos": 9
+        },
+        {
+          "entity": "Room",
+          "startPos": 0,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat in the bedroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 30
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "heat living room 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 17,
+          "endPos": 18
+        },
+        {
+          "entity": "Room",
+          "startPos": 5,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on at 13",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat at 23 in bedroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 32
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat in bedroom 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 28,
+          "endPos": 29
+        },
+        {
+          "entity": "Room",
+          "startPos": 20,
+          "endPos": 26
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in bathroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 20,
+          "endPos": 27
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the bathroom at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 36,
+          "endPos": 37
+        },
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 31
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn on the heat at the bedroom",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 30
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 12,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on in the bedroom at 23",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 35,
+          "endPos": 36
+        },
+        {
+          "entity": "Room",
+          "startPos": 24,
+          "endPos": 30
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on at 12",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Temperature",
+          "startPos": 20,
+          "endPos": 21
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the heat on the hall",
+      "intent": "AdjustTemp",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 21,
+          "endPos": 24
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "turn the lights on to the bedroom.",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 32
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the lights on",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the lights on in the living room",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 36
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the light on the kitchen",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 22,
+          "endPos": 28
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "turn the lights on to the living room",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 36
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the lights on to the bedroom",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 26,
+          "endPos": 32
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the house lights on",
+      "intent": "TurnOn",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 9,
+          "endPos": 13
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 15,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "turn the lights off in the bedroom",
+      "intent": "TurnOff",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 27,
+          "endPos": 33
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "turn the lights off",
+      "intent": "TurnOff",
+      "entities": [
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the light of in the bedroom",
+      "intent": "TurnOff",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 25,
+          "endPos": 31
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "turn the lights off to the living room",
+      "intent": "TurnOff",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 27,
+          "endPos": 37
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn the lights off to the bedroom",
+      "intent": "TurnOff",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 27,
+          "endPos": 33
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "turn off the living room lights",
+      "intent": "TurnOff",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 13,
+          "endPos": 23
+        },
+        {
+          "entity": "Appliance",
+          "startPos": 25,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "lock the door",
+      "intent": "Lock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "lock the door in the rest room",
+      "intent": "Lock",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 21,
+          "endPos": 29
+        },
+        {
+          "entity": "Equipment",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "lock all the doors",
+      "intent": "Lock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 13,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "lock the house",
+      "intent": "Lock",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "lock the door in the hall",
+      "intent": "Lock",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 21,
+          "endPos": 24
+        },
+        {
+          "entity": "Equipment",
+          "startPos": 9,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "unlock the garage door",
+      "intent": "Unlock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 18,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "unlock the door in the bedroom",
+      "intent": "Unlock",
+      "entities": [
+        {
+          "entity": "Room",
+          "startPos": 23,
+          "endPos": 29
+        },
+        {
+          "entity": "Equipment",
+          "startPos": 11,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "unlock the door",
+      "intent": "Unlock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 11,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "unlock the main door",
+      "intent": "Unlock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 11,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "unlock the back yard door",
+      "intent": "Unlock",
+      "entities": [
+        {
+          "entity": "Equipment",
+          "startPos": 21,
+          "endPos": 24
+        }
+      ]
+    }
+  ]
+}
